@@ -31,3 +31,41 @@ const images = [
 ];
 
 
+// quando clicco avanti cambia immagine e poi ritorna indietro
+// a ogni click aumenta index del array così da poter cambiare oggetto a ogni click
+// 
+const wrapper = document.getElementById('wrapper');
+const imageHtml = document.getElementById('img-box');
+const btnNext = document.getElementById('next');
+const btnPrev = document.getElementById('prev');
+
+
+let index = 1;
+
+
+btnNext.addEventListener('click',moveNext);
+// btnPrev.addEventListener('click',movePrev);
+
+function moveNext(){
+
+    imageHtml.src = images[index].url;
+    // console.log(images[index-1].url);
+    console.log(index);
+    index++;
+
+if(index === images.length){
+    index = 1;
+}
+}
+
+
+// function movePrev(){
+//     box.style.backgroundImage = `url("${images[index-1].url}")`
+// // console.log(images[index-1].url);
+
+// index--;
+// if(index === 1){
+//     index = 4;
+//     console.log(index);
+// }
+// }
