@@ -44,7 +44,7 @@ let index = 1;
 
 
 btnNext.addEventListener('click',moveNext);
-// btnPrev.addEventListener('click',movePrev);
+btnPrev.addEventListener('click',movePrev);
 
 function moveNext(){
 
@@ -59,13 +59,13 @@ if(index === images.length){
 }
 
 
-// function movePrev(){
-//     box.style.backgroundImage = `url("${images[index-1].url}")`
-// // console.log(images[index-1].url);
+function movePrev(){
+    box.style.backgroundImage = `url("${images[index-1].url}")`
+// console.log(images[index-1].url);
 
-// index--;
-// if(index === 1){
-//     index = 4;
-//     console.log(index);
-// }
-// }
+index--;
+if(index === 1){
+    index = 4;
+    console.log(index);
+}
+}
