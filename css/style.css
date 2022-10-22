@@ -19,7 +19,7 @@
   font-weight: bold;
   font-size: 46px;
   transition: 0.6s ease;
-  border-radius: 0 10px 10px 0;
+  /* border-radius: 0 10px 10px 0; */
   /* user-select: none; */
   z-index: 100;
 }
@@ -27,7 +27,7 @@
 .next {
   position: absolute;
   right: 12px;
-  border-radius: 10px 0 0 10px;
+  /* border-radius: 10px 0 0 10px; */
 }
 
 .prev {
@@ -39,7 +39,7 @@
 
 .prev:hover,
 .next:hover {
-  background-color: rgba(0, 0, 0, 0.623);
+  /* background-color: rgba(0, 0, 0, 0.623); */
   color: white;
 }
 
@@ -67,17 +67,17 @@ img {
 #contentText {
   position: absolute;
   top: 25px;
-  right: 25px;
-  padding: 5px 40px;
+  right: 50px;
+  padding: 5px 10px;
   
   text-align: right;
   width: 70%;
   border-radius: 10px;
   text-shadow: 0px 2px 10px black;
   transition: all 1s;
+  background-color: rgba(0, 0, 0, 0.623);
 }
 #contentText:hover {
-  background-color: rgba(0, 0, 0, 0.623);
   /* background-image: linear-gradient(to right, rgba(255,0,0,0),black); */
   /* box-shadow: inset 5px 5px 8px 10px black; */
 

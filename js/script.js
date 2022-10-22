@@ -51,14 +51,17 @@ btnNext.addEventListener('click',moveNext);
 btnPrev.addEventListener('click',movePrev);
 
 
-for(let i = 1; i < images.length; i++){
-    imageHtml.innerHTML = `<img src="${images[index-i].url}" class="d-none">`;
-    title.innerText = images[index-i].title;
-    description.innerText = images[index-i].description;
-}
+//     imageHtml.innerHTML = `<img src="${images[index-i].url}" class="d-none">`;
+// for(let i = 1; i < images.length; i++){
+//     title.innerText = images[index-i].title;
+//     description.innerText = images[index-i].description;
+// }
 
 
 
+imageHtml.src = images[index-1].url;
+title.innerText = images[index-1].title;
+description.innerText = images[index-1].description;
 
 function moveNext(){
     index += 1;
@@ -90,6 +93,4 @@ function currentSlide(n) {
     imageHtml.src = images[index-1].url
     title.innerText = images[index-1].title;
     description.innerText = images[index-1].description;
-
-
 }
