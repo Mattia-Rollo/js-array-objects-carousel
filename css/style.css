@@ -1,51 +1,100 @@
-.col{
-    position: relative;
+/* body{
+  background-color: beige;
+} */
+
+.col {
+  position: relative;
 }
-.prev, .next {
-    cursor: pointer;
-    
-    top: 50%;
-    /* left: 0; */
-    width: auto;
-    padding: 100px 16px;
-    margin-top: -150px;
-    color: rgba(219, 219, 219, 0);
-    font-weight: bold;
-    font-size: 46px;
-    transition: 0.6s ease;
-    border-radius: 0 10px 10px 0;
-    user-select: none;
-    z-index: 100;
-  }
-  .next {
-    position: absolute;
-    right: 12px;
-    border-radius: 3px 0 0 3px;
+
+.prev,
+.next {
+  cursor: pointer;
+  height: 100%;
+  bottom: 0;
+  /* left: 0; */
+  width: auto;
+  padding: 22% 10px;
+  /* margin-top: -150px; */
+  color: #dbdbdb00;
+  font-weight: bold;
+  font-size: 46px;
+  transition: 0.6s ease;
+  border-radius: 0 10px 10px 0;
+  /* user-select: none; */
+  z-index: 100;
 }
+
+.next {
+  position: absolute;
+  right: 12px;
+  border-radius: 10px 0 0 10px;
+}
+
 .prev {
-    position: absolute;
-    left: 12px;
-  }
-  .prev:hover, .next:hover {
-    background-color: rgba(0, 0, 0, 0.623);
-    color: white;
-  }
-  .box {
-    width: 100%;
-    height: 100%;
-    background-color: bisque;
-    /* overflow: hidden;   */
-    /* background-image: url("http://www.viaggiareonline.it/wp-content/uploads/2014/11/sweden_148857365.jpg"); */
-    /* background-position: center; */
-    /* background-size: cover; */
+  position: absolute;
+  left: 12px;
+  /* border-radius: 0px 3px 3px 0px; */
 
 }
-  img {
-    width: 100%;
-    height: 500px;
-    background-color: aqua;
-    object-fit: cover;
-    /* overflow: hidden; */
-    /* object-position: center; */
-  }
+
+.prev:hover,
+.next:hover {
+  background-color: rgba(0, 0, 0, 0.623);
+  color: white;
+}
+
+.box {
+  width: 100%;
+  height: 100%;
+  background-color: bisque;
+  /* overflow: hidden;   */
+  /* background-image: url("http://www.viaggiareonline.it/wp-content/uploads/2014/11/sweden_148857365.jpg"); */
+  /* background-position: center; */
+  /* background-size: cover; */
+
+}
+
+img {
+  width: 100%;
+  height: 500px;
+  background-color: aqua;
+  object-fit: cover;
+  /* overflow: hidden; */
+  /* object-position: center; */
+  /* transition: all 1s; */
+}
+
+#contentText {
+  position: absolute;
+  top: 25px;
+  right: 25px;
+  padding: 5px 40px;
   
+  text-align: right;
+  width: 70%;
+  border-radius: 10px;
+  text-shadow: 0px 2px 10px black;
+  transition: all 1s;
+}
+#contentText:hover {
+  background-color: rgba(0, 0, 0, 0.623);
+  /* background-image: linear-gradient(to right, rgba(255,0,0,0),black); */
+  /* box-shadow: inset 5px 5px 8px 10px black; */
+
+}
+
+.dot {
+  cursor: pointer;
+  height: 15px;
+  width: 15px;
+  margin: 0 2px;
+  background-color: #bbb;
+  border-radius: 50%;
+  display: inline-block;
+  transition: background-color 0.6s ease;
+}
+
+.active,
+.dot:hover {
+  background-color: #717171;
+}

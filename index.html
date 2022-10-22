@@ -13,21 +13,33 @@
     <title>Our Team</title>
 </head>
 <body>
-    <div id="wrapper" class="container-md position-relative">
-        <div class="row pt-5">
+    <div id="wrapper" class="container-lg position-relative">
+        <div class="row pt-1">
             <div id="col" class="col-10 m-auto position-relative">
+                <a id="prev" class="prev" ><i class="fa-solid fa-chevron-left"></i></a>
+                <a id="next" class="next" ><i class="fa-solid fa-chevron-right"></i></a>
                 <div id="box" class="box">
-                    <a id="prev" class="prev" ><i class="fa-solid fa-chevron-left"></i></a>
-                    <a id="next" class="next" ><i class="fa-solid fa-chevron-right"></i></a>
-                    <img id="img-box" src="http://www.viaggiareonline.it/wp-content/uploads/2014/11/sweden_148857365.jpg" alt="" class="" >
+                    <div id="image"class=''>
+                        <img id="" src="" alt="" class="" >
+                    </div>
+                    <div id="contentText" class="text-white">
+                        <h1 id="title" class="p-2">Ciao</h1>
+                        <p id="description" class="">sono la descrizione</p>
+                    </div>
                 </div>
             </div>
         </div>
     </div>
-    <div class="container-md text-center">
-        <div>
-            
-        </div>
+    <div class="container-md text-center ">
+        
+            <div style="text-align:center">
+                <span class="dot" onclick="currentSlide(1)"></span> 
+                <span class="dot" onclick="currentSlide(2)"></span> 
+                <span class="dot" onclick="currentSlide(3)"></span> 
+                <span class="dot" onclick="currentSlide(4)"></span> 
+                <span class="dot" onclick="currentSlide(5)"></span> 
+              </div>
+        
     </div>
     <script src="js/script.js"></script>
 </body>
