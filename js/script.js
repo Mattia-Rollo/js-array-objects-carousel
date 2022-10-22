@@ -87,8 +87,7 @@ showSlides(slideIndex);
 
 function plusSlides() {
     showSlides(slideIndex += 1);
-    clearInterval();
-    intervall;
+    
 
 }
 function minusSlides() {

@@ -16,14 +16,14 @@
   /* left: 0; */
   /* width: auto; */
   transform: translate(0,-50%);
-  padding: 0 25px;
+  padding: 0 35px;
   padding-top: 20%;
   /* margin-top: -150px; */
   color: #dbdbdb00;
   /* font-weight: bold; */
   
-  font-size: 46px;
-  transition: 2s ease;
+  font-size: 58px;
+  transition: 0.8s ease;
   /* border-radius: 0 10px 10px 0; */
   /* user-select: none; */
   z-index: 100;
@@ -45,7 +45,7 @@
 
 .prev:hover,
 .next:hover {
-  background-color: rgba(0, 0, 0, 0.623);
+  /* background-color: rgba(0, 0, 0, 0.623); */
   color: white;
 }
 
