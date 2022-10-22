@@ -18,7 +18,7 @@
   color: #dbdbdb00;
   font-weight: bold;
   font-size: 46px;
-  transition: 0.6s ease;
+  transition: 1s ease;
   /* border-radius: 0 10px 10px 0; */
   /* user-select: none; */
   z-index: 100;
@@ -66,8 +66,8 @@ img {
 
 #contentText {
   position: absolute;
-  top: 25px;
-  right: 50px;
+  top: 5px;
+  right: 100px;
   padding: 5px 10px;
   
   text-align: right;
@@ -97,4 +97,16 @@ img {
 .active,
 .dot:hover {
   background-color: #717171;
+}
+.mySlides {
+  transition: all 1s;
+}
+.fade {
+  animation-name: fade;
+  animation-duration: 1.5s;
+}
+
+@keyframes fade {
+  from {opacity: 0.4} 
+  to {opacity: 1}
 }

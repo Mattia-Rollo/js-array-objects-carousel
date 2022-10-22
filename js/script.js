@@ -35,73 +35,117 @@ const images = [
 // a ogni click aumenta index del array così da poter cambiare oggetto a ogni click
 // 
 const wrapper = document.getElementById('wrapper');
-const imageHtml = document.getElementById('image');
-const box = document.getElementById('box')
+const box = document.getElementById('box');
 
 
 const btnNext = document.getElementById('next');
 const btnPrev = document.getElementById('prev');
 
-const title = document.getElementById('title');
-const description = document.getElementById('description');
-
 let index = 1;
 
 console.log(index);
 
-btnNext.addEventListener('click',moveNext);
-btnPrev.addEventListener('click',movePrev);
+btnNext.addEventListener('click', plusSlides);
+btnPrev.addEventListener('click', minusSlides);
 
 
-    // imageHtml.innerHTML = `<img src="${images[index-i].url}" class="d-none">`;
-for(let i = 1; i < images.length; i++){
-
-    box.innerHTML = `
-                    <div id=""class=''>
-                        <img id="image" src="" alt="" class="" >
-                    </div>
-                    <div id="contentText" class="text-white d-none">
-                        <h1 id="title" class="p-2">Ciao</h1>
-                        <p id="description" class="">sono la descrizione</p>
-                    </div>`;
-
+// imageHtml.innerHTML = `<img src="${images[index-i].url}" class="d-none">`;
+for(let i = 0; i < images.length; i++){
+    
+    box.innerHTML += `
+    <div id="" class="mySlides">
+        <div id="" class='fade show'>
+            <img id="image" src="${images[i].url}" alt="" class="" >
+        </div>
+        <div id="contentText" class="text-white">
+            <h1 id="title" class="p-2">${images[i].title}</h1>
+            <p id="description" class="">${images[i].description}</p>
+        </div>
+    </div>`;
 }
+
+
+
 console.log(box);
 
+const imageHtml = document.getElementById('image');
+const title = document.getElementById('title');
+const description = document.getElementById('description');
+
+// console.log(imageHtml);
+
+// imageHtml.src = images[index-1].url;
+// title.innerText = images[index-1].title;
+// description.innerText = images[index-1].description;
 
 
-imageHtml.src = images[index-1].url;
-title.innerText = images[index-1].title;
-description.innerText = images[index-1].description;
+let slideIndex = 1;
+showSlides(slideIndex);
 
-function moveNext(){
-    index += 1;
-    console.log(index);
-    if(index > images.length){
-        index = 1;
-    }
-    imageHtml.src = images[index-1].url
-    title.innerText = images[index-1].title;
-    description.innerText = images[index-1].description;
+function plusSlides() {
+  showSlides(slideIndex += 1);
 }
-
-
-function movePrev(){
-index--;
-if(index < 1){
-    index = images.length;
-    console.log(index);
+function minusSlides() {
+    showSlides(slideIndex -= 1);
 }
-    imageHtml.src = images[index-1].url
-    title.innerText = images[index-1].title;
-    description.innerText = images[index-1].description;
-    console.log(index);
-}
-
 
 function currentSlide(n) {
-    index = n;
-    imageHtml.src = images[index-1].url
-    title.innerText = images[index-1].title;
-    description.innerText = images[index-1].description;
+  showSlides(slideIndex = n);
 }
+
+function showSlides(n) {
+  let i;
+  let slides = document.getElementsByClassName("mySlides");
+  console.log(slides[0]);
+  let dots = document.getElementsByClassName("dot");
+  if (n > slides.length) {slideIndex = 1}    
+  if (n < 1) {slideIndex = slides.length}
+  for (i = 0; i < slides.length; i++) {
+    slides[i].style.display = "none";  
+  }
+  for (i = 0; i < dots.length; i++) {
+    dots[i].className = dots[i].className.replace(" active", "");
+  }
+  slides[slideIndex-1].style.display = "block";
+  dots[slideIndex-1].className += " active";
+}
+
+
+
+
+
+// function moveNext(){
+//     index += 1;
+//     console.log(index);
+//     if(index > images.length){
+//         index = 1;
+//     }
+//     imageHtml.src = images[index-1].url
+//     title.innerText = images[index-1].title;
+//     description.innerText = images[index-1].description;
+// }
+
+
+// // for(let i = 0; i < images.length ; i++) {
+
+// // }
+
+// function movePrev(){
+// index--;
+// if(index < 1){
+//     index = images.length;
+//     console.log(index);
+// }
+//     imageHtml.src = images[index-1].url
+//     title.innerText = images[index-1].title;
+//     description.innerText = images[index-1].description;
+//     console.log(index);
+// }
+
+
+// function currentSlide(n) {
+//     index = n;
+//     imageHtml.src = images[index-1].url
+//     title.innerText = images[index-1].title;
+//     description.innerText = images[index-1].description;
+// }
