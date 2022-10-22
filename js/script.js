@@ -65,7 +65,7 @@ for(let i = 0; i < images.length; i++){
 
 box.innerHTML = slides;
 
-const seconds = 5;
+const seconds = 8;
 
 const intervall = setInterval(plusSlides, seconds * 1000);
 
