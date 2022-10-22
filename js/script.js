@@ -36,6 +36,8 @@ const images = [
 // 
 const wrapper = document.getElementById('wrapper');
 const imageHtml = document.getElementById('image');
+const box = document.getElementById('box')
+
 
 const btnNext = document.getElementById('next');
 const btnPrev = document.getElementById('prev');
@@ -51,11 +53,20 @@ btnNext.addEventListener('click',moveNext);
 btnPrev.addEventListener('click',movePrev);
 
 
-//     imageHtml.innerHTML = `<img src="${images[index-i].url}" class="d-none">`;
-// for(let i = 1; i < images.length; i++){
-//     title.innerText = images[index-i].title;
-//     description.innerText = images[index-i].description;
-// }
+    // imageHtml.innerHTML = `<img src="${images[index-i].url}" class="d-none">`;
+for(let i = 1; i < images.length; i++){
+
+    box.innerHTML = `
+                    <div id=""class=''>
+                        <img id="image" src="" alt="" class="" >
+                    </div>
+                    <div id="contentText" class="text-white d-none">
+                        <h1 id="title" class="p-2">Ciao</h1>
+                        <p id="description" class="">sono la descrizione</p>
+                    </div>`;
+
+}
+console.log(box);
 
 
 
