@@ -44,11 +44,13 @@ const btnPrev = document.getElementById('prev');
 let index = 1;
 
 
-btnNext.addEventListener('click', plusSlides);
-btnPrev.addEventListener('click', minusSlides);
+
 
 let slides = '';
 // imageHtml.innerHTML = `<img src="${images[index-i].url}" class="d-none">`;
+
+//creo un ciclo for per crearmi in una volta sola tutti i box dove andranno le immagini
+// e li salo in una variabile in modo da poter usare innerHtml una volta sola
 for(let i = 0; i < images.length; i++){
     
     slides += `
@@ -115,6 +117,9 @@ function showSlides(n) {
     dots[slideIndex-1].className += " active";
 }
 
+//bottoni per cambiare immagine al box centrale
+btnNext.addEventListener('click', plusSlides);
+btnPrev.addEventListener('click', minusSlides);
 
 console.log(slideIndex);
 
