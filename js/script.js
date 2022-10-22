@@ -54,7 +54,7 @@ for(let i = 0; i < images.length; i++){
     
     box.innerHTML += `
     <div id="" class="mySlides">
-        <div id="" class='fade show'>
+        <div id="image" class='fade show'>
             <img id="image" src="${images[i].url}" alt="" class="" >
         </div>
         <div id="contentText" class="text-white">
