@@ -43,32 +43,33 @@ const btnPrev = document.getElementById('prev');
 
 let index = 1;
 
-console.log(index);
 
 btnNext.addEventListener('click', plusSlides);
 btnPrev.addEventListener('click', minusSlides);
 
-
+let slides = '';
 // imageHtml.innerHTML = `<img src="${images[index-i].url}" class="d-none">`;
 for(let i = 0; i < images.length; i++){
     
-    box.innerHTML += `
+    slides += `
     <div id="" class="mySlides">
-        <div id="image" class='fade show'>
-            <img id="image" src="${images[i].url}" alt="" class="" >
-        </div>
-        <div id="contentText" class="text-white">
-            <h1 id="title" class="p-2">${images[i].title}</h1>
-            <p id="description" class="">${images[i].description}</p>
-        </div>
+    <div id="image" class='fade show'>
+    <img id="image" src="${images[i].url}" alt="" class="" >
+    </div>
+    <div id="contentText" class="text-white">
+    <h1 id="title" class="p-2">${images[i].title}</h1>
+    <p id="description" class="">${images[i].description}</p>
+    </div>
     </div>`;
 }
 
-const seconds = 10;
+box.innerHTML = slides;
 
-setInterval(plusSlides, seconds * 1000);
+const seconds = 5;
 
-console.log(box);
+const intervall = setInterval(plusSlides, seconds * 1000);
+
+// console.log(box);
 
 // const imageHtml = document.getElementById('image');
 // const title = document.getElementById('title');
@@ -85,34 +86,38 @@ let slideIndex = 1;
 showSlides(slideIndex);
 
 function plusSlides() {
-  showSlides(slideIndex += 1);
+    showSlides(slideIndex += 1);
+    clearInterval();
+    intervall;
+
 }
 function minusSlides() {
     showSlides(slideIndex -= 1);
 }
 
 function currentSlide(n) {
-  showSlides(slideIndex = n);
+    showSlides(slideIndex = n);
 }
 
 function showSlides(n) {
-  let i;
-  let slides = document.getElementsByClassName("mySlides");
-  console.log(slides[0]);
-  let dots = document.getElementsByClassName("dot");
-  if (n > slides.length) {slideIndex = 1}    
-  if (n < 1) {slideIndex = slides.length}
-  for (i = 0; i < slides.length; i++) {
-    slides[i].style.display = "none";  
-  }
-  for (i = 0; i < dots.length; i++) {
-    dots[i].className = dots[i].className.replace(" active", "");
-  }
-  slides[slideIndex-1].style.display = "block";
-  dots[slideIndex-1].className += " active";
+    let i;
+    let slides = document.getElementsByClassName("mySlides");
+    //   console.log(slides[0]);
+    let dots = document.getElementsByClassName("dot");
+    if (n > slides.length) {slideIndex = 1}    
+    if (n < 1) {slideIndex = slides.length}
+    for (i = 0; i < slides.length; i++) {
+        slides[i].style.display = "none";  
+    }
+    for (i = 0; i < dots.length; i++) {
+        dots[i].className = dots[i].className.replace(" active", "");
+    }
+    slides[slideIndex-1].style.display = "block";
+    dots[slideIndex-1].className += " active";
 }
 
 
+console.log(slideIndex);
 
 
 

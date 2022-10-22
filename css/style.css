@@ -10,7 +10,7 @@
 .prev,
 .next {
   cursor: pointer;
-  height: 70%;
+  
   top: 50%;
   /* left: 0; */
   /* width: auto; */
@@ -26,6 +26,7 @@
   /* user-select: none; */
   z-index: 100;
 }
+
 
 .next {
   position: absolute;
