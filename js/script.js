@@ -34,7 +34,7 @@ const images = [
 // quando clicco avanti cambia immagine e poi ritorna indietro
 // a ogni click aumenta index del array così da poter cambiare oggetto a ogni click
 // 
-const wrapper = document.getElementById('wrapper');
+// const wrapper = document.getElementById('wrapper');
 const box = document.getElementById('box');
 
 
@@ -64,13 +64,15 @@ for(let i = 0; i < images.length; i++){
     </div>`;
 }
 
+const seconds = 10;
 
+setInterval(plusSlides, seconds * 1000);
 
 console.log(box);
 
-const imageHtml = document.getElementById('image');
-const title = document.getElementById('title');
-const description = document.getElementById('description');
+// const imageHtml = document.getElementById('image');
+// const title = document.getElementById('title');
+// const description = document.getElementById('description');
 
 // console.log(imageHtml);
 
