@@ -129,17 +129,18 @@ function setResetInterval(bool){
                 // output.text("Seconds: " + time);
                 // console.log(time);
                 plusSlides();
-                play.style.color = 'green;'
+                // play.style.color = 'green;'
                 
             }else{
-                pause.style.color = 'red'
+                // pause.style.color = 'red'
             }
             
         },time * 1000);
         // return true;
     }else{
       clearInterval(interval); 
-      pause.style.color = 'red';
+    //   pause.style.color = 'red';
+      isPaused = true;
     //   return false;
     }
 }
@@ -168,9 +169,10 @@ reverse.addEventListener('click', function() {
 });
 
 play.addEventListener('click', function(){
-    if(!isPaused) {
+    if(!checkPlay) {
         setResetInterval(true);
-        isPaused = true;
+        checkPlay = false;
+        pause.style.color = 'white';
     }else{
         isPaused = false;
         pause.style.color = 'white' 
@@ -184,7 +186,7 @@ pause.addEventListener('click', function() {
         pause.style.color = 'red'
         pause.style.borderColor = 'red'
     }else{
-        isPaused = false;
+        // isPaused = false;
         pause.style.color = 'white'
         pause.style.borderColor = 'white'
     }
@@ -234,6 +236,7 @@ function showSlides(n) {
 function stopAutoSlide(){
     setResetInterval(false);
     isPaused = true;
+    pause.style.color = 'red';
     // setTimeout(setResetInterval(true),1000);
 }
 
