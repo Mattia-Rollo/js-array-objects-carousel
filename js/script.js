@@ -121,7 +121,8 @@ var t = setInterval(function() {
     // timer++;
 }, timer * 1000);
 let check = false;
-//with jquery
+
+
 const play = document.getElementsByClassName('play')[0];
 const pause = document.getElementsByClassName('pause')[0];
 const reverse = document.getElementsByClassName('reverse')[0];
@@ -133,15 +134,16 @@ reverse.addEventListener('click', function() {
     check = true;
     faArrow.classList.remove('fa-arrow-right');
     faArrow.classList.add('fa-arrow-left');
-}
-else{
+    }else{
     rev = false;
     check = false;
     faArrow.classList.remove('fa-arrow-left');
     faArrow.classList.add('fa-arrow-right');
     }
 });
+
 let checkPausa = false
+
 play.addEventListener('click', function() {
     isPaused = false;
     checkPausa = false;  
@@ -160,7 +162,6 @@ pause.addEventListener('click', function() {
         pause.style.color = 'white'
         pause.style.borderColor = 'white'
     }
-//   clearInterval(t);
 });
 
 
