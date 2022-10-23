@@ -105,13 +105,15 @@ var time = 3;
 let rev = false;
 
 
-let timerSecondi = 0;
+let checkSecondi = 0;
 let interval;
+
+let checkPlay = false;
 
 // con questa funzione posso resettare setInterval prima che arrivi alla fine dei 3 secondi, annullando lo slide automatico
 //e posso avere un controllo sull'intervallo e farlo ripartire subito dopo in modo che ripara a contare da zero
 function setResetInterval(bool){
-  
+
     if(bool){
           interval = setInterval(function(){
         //   el.css("background", "red");
@@ -127,10 +129,12 @@ function setResetInterval(bool){
                 // output.text("Seconds: " + time);
                 // console.log(time);
                 plusSlides();
+                play.style.color = 'green;'
+                
             }else{
                 pause.style.color = 'red'
             }
-            console.log(time);
+            
         },time * 1000);
         // return true;
     }else{
@@ -163,17 +167,15 @@ reverse.addEventListener('click', function() {
     }
 });
 
-let checkPlay = false;
 play.addEventListener('click', function(){
-    if(!checkPlay) {
+    if(!isPaused) {
         setResetInterval(true);
-        checkPlay = true;
+        isPaused = true;
+    }else{
+        isPaused = false;
+        pause.style.color = 'white' 
+        pause.style.border = '2px solid white'
     }
-});
-play.addEventListener('click', function() {
-    isPaused = false;
-    pause.style.color = 'white' 
-    pause.style.border = '2px solid white'
     // setResetInterval(false);
 });
 pause.addEventListener('click', function() {
@@ -231,7 +233,7 @@ function showSlides(n) {
 //questa funzione sotto mi permette di avere due tipi di comportamento al click del btnNext, così com'è mi blocca lo scorrimento automatico, mentre se volessi avere un delay in modo da visualizzare meglio la slide successiva, così che il timer rincominci a contare da zero, devo fare un setResetInterval(true) dopo il setResetInterval(false) già presente sotto
 function stopAutoSlide(){
     setResetInterval(false);
-    checkPlay = false;
+    isPaused = true;
     // setTimeout(setResetInterval(true),1000);
 }
 
