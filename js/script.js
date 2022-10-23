@@ -130,17 +130,20 @@ function setResetInterval(bool){
             }else{
                 pause.style.color = 'red'
             }
-      },time * 1000);
+            console.log(time);
+        },time * 1000);
+        // return true;
     }else{
       clearInterval(interval); 
       pause.style.color = 'red';
+    //   return false;
     }
 }
 
 setResetInterval(true);
   
 
-
+// console.log(setResetInterval());
 
 
 const play = document.getElementsByClassName('play')[0];
@@ -160,8 +163,13 @@ reverse.addEventListener('click', function() {
     }
 });
 
-let checkPausa = false;
-play.addEventListener('click', startAutoSlide);
+let checkPlay = false;
+play.addEventListener('click', function(){
+    if(!checkPlay) {
+        setResetInterval(true);
+        checkPlay = true;
+    }
+});
 play.addEventListener('click', function() {
     isPaused = false;
     pause.style.color = 'white' 
@@ -217,21 +225,22 @@ function showSlides(n) {
     thumbnails[slideIndex-1].className += " active";
 }
 
-function startAutoSlide(){
-    setResetInterval(true);
-}
-
-function delayAutoSlide(){
+// function startAutoSlide(){
+//     setResetInterval(true);
+// }
+//questa funzione sotto mi permette di avere due tipi di comportamento al click del btnNext, così com'è mi blocca lo scorrimento automatico, mentre se volessi avere un delay in modo da visualizzare meglio la slide successiva, così che il timer rincominci a contare da zero, devo fare un setResetInterval(true) dopo il setResetInterval(false) già presente sotto
+function stopAutoSlide(){
     setResetInterval(false);
+    checkPlay = false;
     // setTimeout(setResetInterval(true),1000);
 }
 
 //bottoni per cambiare immagine al box centrale
 btnNext.addEventListener('click', plusSlides);
-btnNext.addEventListener('click', delayAutoSlide);
+btnNext.addEventListener('click', stopAutoSlide);
 
 btnPrev.addEventListener('click', minusSlides);
-btnPrev.addEventListener('click', delayAutoSlide);
+btnPrev.addEventListener('click', stopAutoSlide);
 
 // console.log(slideIndex);
 
