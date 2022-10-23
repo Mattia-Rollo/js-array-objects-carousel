@@ -103,8 +103,8 @@ box.innerHTML = slides;
 
 
 var isPaused = false;
-var time = 2;
-var rev = false;
+var timer = 3;
+let rev = false;
 var t = setInterval(function() {
     // console.log(isPaused);
     if(rev && !isPaused){
@@ -118,8 +118,8 @@ var t = setInterval(function() {
     }else{
         pause.style.color = 'red'
     }
-    time++;
-}, time * 1000);
+    // timer++;
+}, timer * 1000);
 let check = false;
 //with jquery
 const play = document.getElementsByClassName('play')[0];
@@ -146,7 +146,7 @@ play.addEventListener('click', function() {
     isPaused = false;
     checkPausa = false;  
     pause.style.color = 'white' 
-    pause.style.borderColor = 'white'
+    pause.style.border = '2px solid white'
 });
 pause.addEventListener('click', function() {
     if(!checkPausa){
