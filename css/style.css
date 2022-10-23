@@ -10,7 +10,7 @@
 .prev,
 .next {
   cursor: pointer;
-  height: 75vh;
+  height: 100%;
   top: 50%;
   
   /* left: 0; */
@@ -151,7 +151,7 @@
 }
 
 @keyframes fade {
-  from {opacity: 0.8} 
+  from {opacity: 0.6} 
   to {opacity: 1}
 }
 .myControls {

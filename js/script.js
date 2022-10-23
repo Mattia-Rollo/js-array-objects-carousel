@@ -88,39 +88,62 @@ box.innerHTML = slides;
 // var time = 0;
 // var t = window.setInterval(function() {
   
-// }, 1000);
-
-// //with jquery
-// $('.pause').on('click', function(e) {
-//   e.preventDefault();
-//   isPaused = true;
-// });
-
-// $('.play').on('click', function(e) {
-//   e.preventDefault();
-//   isPaused = false;
-// });
-
-
-var isPaused = false;
-var timer = 3;
-let rev = false;
-var t = setInterval(function() {
-    // console.log(isPaused);
-    if(rev && !isPaused){
-        minusSlides();
-    } else
-    if(!isPaused) {
-        // output.text("Seconds: " + time);
-        // console.log(time);
-        plusSlides();
+    // }, 1000);
+    
+    // //with jquery
+    // $('.pause').on('click', function(e) {
+        //   e.preventDefault();
+        //   isPaused = true;
+        // });
         
+        // $('.play').on('click', function(e) {
+            //   e.preventDefault();
+            //   isPaused = false;
+            // });
+var isPaused = false;
+var time = 3;
+let rev = false;
+
+
+
+
+
+
+
+
+let timerSecondi = 0;
+let interval;
+function setResetInterval(bool){
+  
+    if(bool){
+          interval = setInterval(function(){
+        //   el.css("background", "red");
+        // setTimeout(function(){
+        //   el.css("background", "blue");
+        // var t = setInterval(function() {
+            // console.log(isPaused);
+            // console.log(timer);
+            if(rev && !isPaused){
+                minusSlides();
+            } else
+            if(!isPaused) {
+                // output.text("Seconds: " + time);
+                // console.log(time);
+                plusSlides();
+            }else{
+                pause.style.color = 'red'
+            }
+      },time * 1000);
     }else{
-        pause.style.color = 'red'
+      clearInterval(interval); 
+      pause.style.color = 'red';
     }
-    // timer++;
-}, timer * 1000);
-let check = false;
+}
+
+setResetInterval(true);
+  
+
+
 
 
 const play = document.getElementsByClassName('play')[0];
@@ -129,36 +152,32 @@ const reverse = document.getElementsByClassName('reverse')[0];
 const faArrow = reverse.getElementsByTagName('i')[0];
 // console.log(pause)
 reverse.addEventListener('click', function() {
-    if(!check){
+    if(!rev){
     rev = true;
-    check = true;
     faArrow.classList.remove('fa-arrow-right');
     faArrow.classList.add('fa-arrow-left');
     }else{
     rev = false;
-    check = false;
     faArrow.classList.remove('fa-arrow-left');
     faArrow.classList.add('fa-arrow-right');
     }
 });
 
-let checkPausa = false
-
+let checkPausa = false;
+play.addEventListener('click', startAutoSlide);
 play.addEventListener('click', function() {
     isPaused = false;
-    checkPausa = false;  
     pause.style.color = 'white' 
     pause.style.border = '2px solid white'
+    // setResetInterval(false);
 });
 pause.addEventListener('click', function() {
-    if(!checkPausa){
-    isPaused = true;
-    checkPausa = true;
-    pause.style.color = 'red'
-    pause.style.borderColor = 'red'
+    if(!isPaused){
+        isPaused = true;
+        pause.style.color = 'red'
+        pause.style.borderColor = 'red'
     }else{
         isPaused = false;
-        checkPausa = false;
         pause.style.color = 'white'
         pause.style.borderColor = 'white'
     }
@@ -172,7 +191,8 @@ showSlides(slideIndex);
 
 function plusSlides() {
     showSlides(slideIndex += 1);
-  
+    // isPaused = true;
+    // checkPausa = true; 
 
 }
 function minusSlides() {
@@ -200,11 +220,23 @@ function showSlides(n) {
     thumbnails[slideIndex-1].className += " active";
 }
 
+function startAutoSlide(){
+    setResetInterval(true);
+}
+
+function delayAutoSlide(){
+    setResetInterval(false);
+    // setTimeout(setResetInterval(true),1000);
+}
+
 //bottoni per cambiare immagine al box centrale
 btnNext.addEventListener('click', plusSlides);
-btnPrev.addEventListener('click', minusSlides);
+btnNext.addEventListener('click', delayAutoSlide);
 
-console.log(slideIndex);
+btnPrev.addEventListener('click', minusSlides);
+btnPrev.addEventListener('click', delayAutoSlide);
+
+// console.log(slideIndex);
 
 
 
