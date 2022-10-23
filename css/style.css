@@ -19,7 +19,7 @@
   padding: 0 35px;
   padding-top: 20%;
   /* margin-top: -150px; */
-  color: #dbdbdb00;
+  color: #dbdbdb81;
   /* font-weight: bold; */
   
   font-size: 58px;
@@ -95,6 +95,7 @@
   /* height: 15px; */
   width: calc(100% / 5);
   /* margin: 0 2px; */
+  border: 2px solid black;
   background-color: #bbb;
   /* border-radius: 50%; */
   display: inline-block;
@@ -120,6 +121,12 @@
   border-radius: 5px;
   opacity: 1;
   z-index: 100;
+}
+.dot:has(+.dot:hover), .dot:has(+ .dot + .dot:hover),.dot:has(+ .dot +.dot + .dot:hover),.dot:has(+ .dot + .dot +.dot + .dot:hover){
+  transform: translateX(-5%);
+}
+.dot:hover ~ .dot {
+  transform: translatex(5%);
 }
 .mySlides {
   transition: all 1s;
