@@ -105,14 +105,11 @@ var time = 3;
 let rev = false;
 
 
-
-
-
-
-
-
 let timerSecondi = 0;
 let interval;
+
+// con questa funzione posso resettare setInterval prima che arrivi alla fine dei 3 secondi, annullando lo slide automatico
+//e posso avere un controllo sull'intervallo e farlo ripartire subito dopo in modo che ripara a contare da zero
 function setResetInterval(bool){
   
     if(bool){
