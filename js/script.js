@@ -114,6 +114,9 @@ var t = setInterval(function() {
         // output.text("Seconds: " + time);
         // console.log(time);
         plusSlides();
+        
+    }else{
+        pause.style.color = 'red'
     }
     time++;
 }, time * 1000);
@@ -138,12 +141,22 @@ else{
     faArrow.classList.add('fa-arrow-right');
     }
 });
+let checkPausa = false
 play.addEventListener('click', function() {
-    isPaused = false;   
+    isPaused = false;
+    checkPausa = false;  
+    pause.style.color = 'white' 
 });
-
 pause.addEventListener('click', function() {
-  isPaused = true;
+    if(!checkPausa){
+    isPaused = true;
+    checkPausa = true;
+    pause.style.color = 'red'
+    }else{
+        isPaused = false;
+        checkPausa = false;
+        pause.style.color = 'white'
+    }
 //   clearInterval(t);
 });
 

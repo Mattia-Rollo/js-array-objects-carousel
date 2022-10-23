@@ -116,6 +116,9 @@
 .active{
   opacity: 1;
 }
+.activeCtrls{
+  
+}
 .thumbnail:hover {
   transform: scale(120%);
   /* box-shadow: 0px 5px 15px 2px black; */
