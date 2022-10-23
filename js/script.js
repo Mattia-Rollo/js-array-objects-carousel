@@ -175,6 +175,7 @@ play.addEventListener('click', function(){
         setResetInterval(true);
         isPaused = false;
         pause.style.color = 'white';
+        pause.style.border = '2px solid white'
     }else{
         isPaused = false;
         // setResetInterval(false);
