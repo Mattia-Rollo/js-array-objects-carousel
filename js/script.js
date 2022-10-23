@@ -142,7 +142,7 @@ function setResetInterval(bool){
     }else{
       clearInterval(interval); 
     //   pause.style.color = 'red';
-      isPaused = true;
+    //   isPaused = true;
     //   return false;
     }
 }
@@ -172,7 +172,8 @@ reverse.addEventListener('click', function() {
 
 play.addEventListener('click', function(){
     if(isPaused) {
-        setResetInterval(true);
+        //la riga sotto va  eliminato nel caso voglio solo un delay
+        // setResetInterval(true);
         isPaused = false;
         pause.style.color = 'white';
         pause.style.border = '2px solid white'
@@ -187,12 +188,14 @@ play.addEventListener('click', function(){
 pause.addEventListener('click', function() {
     if(!isPaused){
         isPaused = true;
-        setResetInterval(false);
+        //la riga sotto va  eliminato nel caso voglio solo un delay
+        // setResetInterval(false);
         pause.style.color = 'red'
         pause.style.borderColor = 'red'
     }else{
         isPaused = false;
-        setResetInterval(true);
+        //la riga sotto va  eliminato nel caso voglio solo un delay
+        // setResetInterval(true);
         pause.style.color = 'white'
         pause.style.borderColor = 'white'
     }
@@ -237,11 +240,12 @@ function showSlides(n) {
 
 
 //questa funzione sotto mi permette di avere due tipi di comportamento al click del btnNext, così com'è mi blocca lo scorrimento automatico, mentre se volessi avere un delay in modo da visualizzare meglio la slide successiva, così che il timer rincominci a contare da zero, devo fare un setResetInterval(true) dopo il setResetInterval(false) già presente sotto
+// e devo eliminare isPuased = true;
 function stopAutoSlide(){
     setResetInterval(false);
-    isPaused = true;
-    pause.style.color = 'red';
-    // setTimeout(setResetInterval(true),1000);
+    // isPaused = true;
+    // pause.style.color = 'red';
+    setTimeout(setResetInterval(true),1000);
 }
 
 //bottoni per cambiare immagine al box centrale
