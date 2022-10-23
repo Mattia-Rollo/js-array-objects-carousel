@@ -67,9 +67,9 @@ for(let i = 0; i < images.length; i++){
 
 box.innerHTML = slides;
 
-const seconds = 12;
+// let seconds = 2;
 
-const intervall = setInterval(plusSlides, seconds * 1000);
+// let intervall = setInterval(plusSlides, seconds * 1000);
 
 // console.log(box);
 
@@ -83,13 +83,79 @@ const intervall = setInterval(plusSlides, seconds * 1000);
 // title.innerText = images[index-1].title;
 // description.innerText = images[index-1].description;
 
+// var output = $('h1');
+// var isPaused = false;
+// var time = 0;
+// var t = window.setInterval(function() {
+  
+// }, 1000);
+
+// //with jquery
+// $('.pause').on('click', function(e) {
+//   e.preventDefault();
+//   isPaused = true;
+// });
+
+// $('.play').on('click', function(e) {
+//   e.preventDefault();
+//   isPaused = false;
+// });
+
+
+var isPaused = false;
+var time = 2;
+var rev = false;
+var t = setInterval(function() {
+    // console.log(isPaused);
+    if(rev && !isPaused){
+        minusSlides();
+    } else
+    if(!isPaused) {
+        // output.text("Seconds: " + time);
+        // console.log(time);
+        plusSlides();
+    }
+    time++;
+}, time * 1000);
+let check = false;
+//with jquery
+const play = document.getElementsByClassName('play')[0];
+const pause = document.getElementsByClassName('pause')[0];
+const reverse = document.getElementsByClassName('reverse')[0];
+const faArrow = reverse.getElementsByTagName('i')[0];
+// console.log(pause)
+reverse.addEventListener('click', function() {
+    if(!check){
+    rev = true;
+    check = true;
+    faArrow.classList.remove('fa-arrow-right');
+    faArrow.classList.add('fa-arrow-left');
+}
+else{
+    rev = false;
+    check = false;
+    faArrow.classList.remove('fa-arrow-left');
+    faArrow.classList.add('fa-arrow-right');
+    }
+});
+play.addEventListener('click', function() {
+    isPaused = false;   
+});
+
+pause.addEventListener('click', function() {
+  isPaused = true;
+//   clearInterval(t);
+});
+
+
+
 
 let slideIndex = 1;
 showSlides(slideIndex);
 
 function plusSlides() {
     showSlides(slideIndex += 1);
-    
+  
 
 }
 function minusSlides() {
@@ -104,17 +170,17 @@ function showSlides(n) {
     let i;
     let slides = document.getElementsByClassName("mySlides");
     //   console.log(slides[0]);
-    let dots = document.getElementsByClassName("dot");
+    let thumbnails = document.getElementsByClassName("thumbnail");
     if (n > slides.length) {slideIndex = 1}    
     if (n < 1) {slideIndex = slides.length}
     for (i = 0; i < slides.length; i++) {
         slides[i].style.display = "none";  
     }
-    for (i = 0; i < dots.length; i++) {
-        dots[i].className = dots[i].className.replace(" active", "");
+    for (i = 0; i < thumbnails.length; i++) {
+        thumbnails[i].className = thumbnails[i].className.replace(" active", "");
     }
     slides[slideIndex-1].style.display = "block";
-    dots[slideIndex-1].className += " active";
+    thumbnails[slideIndex-1].className += " active";
 }
 
 //bottoni per cambiare immagine al box centrale
