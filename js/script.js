@@ -112,6 +112,8 @@ let checkPlay = false;
 
 // con questa funzione posso resettare setInterval prima che arrivi alla fine dei 3 secondi, annullando lo slide automatico
 //e posso avere un controllo sull'intervallo e farlo ripartire subito dopo in modo che ripara a contare da zero
+// se voglio solo che si blocchi al click dell frecca next allora la funzione non servirebbe perchè  all'interno del setInterval abbiamo già una condizione per stoppare e far
+// ripartire le slide; 
 function setResetInterval(bool){
 
     if(bool){
@@ -169,12 +171,13 @@ reverse.addEventListener('click', function() {
 });
 
 play.addEventListener('click', function(){
-    if(!checkPlay) {
+    if(isPaused) {
         setResetInterval(true);
-        checkPlay = false;
+        isPaused = false;
         pause.style.color = 'white';
     }else{
         isPaused = false;
+        // setResetInterval(false);
         pause.style.color = 'white' 
         pause.style.border = '2px solid white'
     }
@@ -183,10 +186,12 @@ play.addEventListener('click', function(){
 pause.addEventListener('click', function() {
     if(!isPaused){
         isPaused = true;
+        setResetInterval(false);
         pause.style.color = 'red'
         pause.style.borderColor = 'red'
     }else{
-        // isPaused = false;
+        isPaused = false;
+        setResetInterval(true);
         pause.style.color = 'white'
         pause.style.borderColor = 'white'
     }
@@ -229,9 +234,7 @@ function showSlides(n) {
     thumbnails[slideIndex-1].className += " active";
 }
 
-// function startAutoSlide(){
-//     setResetInterval(true);
-// }
+
 //questa funzione sotto mi permette di avere due tipi di comportamento al click del btnNext, così com'è mi blocca lo scorrimento automatico, mentre se volessi avere un delay in modo da visualizzare meglio la slide successiva, così che il timer rincominci a contare da zero, devo fare un setResetInterval(true) dopo il setResetInterval(false) già presente sotto
 function stopAutoSlide(){
     setResetInterval(false);
