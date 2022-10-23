@@ -33,7 +33,8 @@ const images = [
 
 // quando clicco avanti cambia immagine e poi ritorna indietro
 // a ogni click aumenta index del array così da poter cambiare oggetto a ogni click
-// 
+
+
 // const wrapper = document.getElementById('wrapper');
 const box = document.getElementById('box');
 
@@ -43,25 +44,23 @@ const btnPrev = document.getElementById('prev');
 
 let index = 1;
 
-
-
-
+//inizializzo una variabile slides così da poter aggiungiere un blocco immagine-descrizione 
 let slides = '';
 // imageHtml.innerHTML = `<img src="${images[index-i].url}" class="d-none">`;
 
 //creo un ciclo for per crearmi in una volta sola tutti i box dove andranno le immagini
-// e li salo in una variabile in modo da poter usare innerHtml una volta sola
+// e li salvo in una variabile in modo da poter usare innerHtml una volta sola
 for(let i = 0; i < images.length; i++){
     
     slides += `
     <div id="" class="mySlides">
-    <div id="image" class='fade show'>
-    <img id="image" src="${images[i].url}" alt="" class="" >
-    </div>
-    <div id="contentText" class="text-white">
-    <h1 id="title" class="p-2">${images[i].title}</h1>
-    <p id="description" class="">${images[i].description}</p>
-    </div>
+        <div id="image" class='fade show'>
+            <img id="image" src="${images[i].url}" alt="" class="" >
+        </div>
+        <div id="contentText" class="text-white">
+            <h1 id="title" class="p-2">${images[i].title}</h1>
+            <p id="description" class="">${images[i].description}</p>
+        </div>
     </div>`;
 }
 
@@ -104,8 +103,6 @@ var isPaused = false;
 var time = 3;
 let rev = false;
 
-
-let checkSecondi = 0;
 let interval;
 
 let checkPlay = false;
@@ -131,7 +128,7 @@ function setResetInterval(bool){
                 // output.text("Seconds: " + time);
                 // console.log(time);
                 plusSlides();
-                // play.style.color = 'green;'
+                
                 
             }else{
                 // pause.style.color = 'red'
@@ -151,12 +148,12 @@ setResetInterval(true);
   
 
 // console.log(setResetInterval());
-
-
 const play = document.getElementsByClassName('play')[0];
 const pause = document.getElementsByClassName('pause')[0];
 const reverse = document.getElementsByClassName('reverse')[0];
 const faArrow = reverse.getElementsByTagName('i')[0];
+
+
 // console.log(pause)
 reverse.addEventListener('click', function() {
     if(!rev){
@@ -172,7 +169,7 @@ reverse.addEventListener('click', function() {
 
 play.addEventListener('click', function(){
     if(isPaused) {
-        //la riga sotto va  eliminato nel caso voglio solo un delay
+        //la riga sotto va  eliminata nel caso voglio solo un delay
         // setResetInterval(true);
         isPaused = false;
         pause.style.color = 'white';
@@ -182,6 +179,7 @@ play.addEventListener('click', function(){
         // setResetInterval(false);
         pause.style.color = 'white' 
         pause.style.border = '2px solid white'
+        
     }
     // setResetInterval(false);
 });
@@ -239,7 +237,9 @@ function showSlides(n) {
 }
 
 
-//questa funzione sotto mi permette di avere due tipi di comportamento al click del btnNext, così com'è mi blocca lo scorrimento automatico, mentre se volessi avere un delay in modo da visualizzare meglio la slide successiva, così che il timer rincominci a contare da zero, devo fare un setResetInterval(true) dopo il setResetInterval(false) già presente sotto
+//questa funzione sotto mi permette di avere due tipi di comportamento al click del btnNext, così com'è mi blocca lo scorrimento automatico, 
+//mentre se volessi avere un delay in modo da visualizzare meglio la slide successiva, così che il timer rincominci a contare da zero, devo fare un 
+//setResetInterval(true) dopo il setResetInterval(false) già presente sotto
 // e devo eliminare isPuased = true;
 function stopAutoSlide(){
     setResetInterval(false);
