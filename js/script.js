@@ -146,16 +146,19 @@ play.addEventListener('click', function() {
     isPaused = false;
     checkPausa = false;  
     pause.style.color = 'white' 
+    pause.style.borderColor = 'white'
 });
 pause.addEventListener('click', function() {
     if(!checkPausa){
     isPaused = true;
     checkPausa = true;
     pause.style.color = 'red'
+    pause.style.borderColor = 'red'
     }else{
         isPaused = false;
         checkPausa = false;
         pause.style.color = 'white'
+        pause.style.borderColor = 'white'
     }
 //   clearInterval(t);
 });
