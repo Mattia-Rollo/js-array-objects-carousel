@@ -151,6 +151,7 @@ setResetInterval(true);
 const play = document.getElementsByClassName('play')[0];
 const pause = document.getElementsByClassName('pause')[0];
 const reverse = document.getElementsByClassName('reverse')[0];
+
 const faArrow = reverse.getElementsByTagName('i')[0];
 
 
